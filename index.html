@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Geeks Repair | Calgary SW</title>
+<meta name="description" content="Computer, laptop, gaming console & phone repair in Calgary SW. Motherboard-level & micro soldering. No Fix, No Charge. Book online.">
+<style>
+:root {
+  --bg: #0d0d0d;
+  --bg2: #141414;
+  --bg3: #1c1c1c;
+  --border: #2a2a2a;
+  --white: #f0ede8;
+  --muted: #888;
+  --yellow: #f0c040;
+  --ydim: rgba(240,192,64,0.12);
+  --orange: #e05a20;
+  --green: #50c850;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--white);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:16px;line-height:1.5;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+
+/* HEADER */
+header{
+  position:sticky;top:0;z-index:200;
+  background:rgba(13,13,13,0.97);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:0 20px;height:58px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{font-weight:800;font-size:1rem;color:var(--yellow);line-height:1.2;letter-spacing:0.02em}
+.logo small{display:block;font-size:0.6rem;color:var(--muted);font-weight:400;letter-spacing:0.08em}
+.btn-call{
+  background:var(--yellow);color:#000;
+  font-weight:700;font-size:0.9rem;
+  padding:9px 16px;border-radius:4px;white-space:nowrap;
+}
+
+/* HERO */
+#hero{
+  position:relative;overflow:hidden;
+  padding:44px 20px 48px;
+}
+.grid-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(240,192,64,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(240,192,64,0.04) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+.badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--ydim);border:1px solid rgba(240,192,64,0.25);
+  color:var(--yellow);font-size:0.72rem;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:5px 12px;border-radius:3px;margin-bottom:18px;
+}
+.dot{width:6px;height:6px;background:var(--yellow);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+h1{
+  font-size:clamp(3rem,14vw,5rem);font-weight:900;
+  line-height:0.95;letter-spacing:-0.02em;
+  text-transform:uppercase;margin-bottom:18px;
+}
+.ly{color:var(--yellow)}
+.lo{color:var(--orange)}
+.hero-sub{font-size:0.97rem;color:#999;line-height:1.65;margin-bottom:28px;max-width:360px}
+.hero-btns{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.btn-book{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--yellow);color:#000;
+  font-weight:800;font-size:1.05rem;letter-spacing:0.04em;
+  text-transform:uppercase;padding:15px 24px;border-radius:4px;
+}
+.btn-tel{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:transparent;color:var(--white);
+  font-weight:700;font-size:1rem;
+  padding:14px 24px;border:1px solid var(--border);border-radius:4px;
+}
+.stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:4px;overflow:hidden;
+}
+.stat{background:var(--bg2);padding:14px 8px;text-align:center}
+.stat-n{font-weight:800;font-size:1.5rem;color:var(--yellow);line-height:1;display:block}
+.stat-l{font-size:0.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;margin-top:3px;display:block}
+
+/* NO FIX BANNER */
+.nfb{
+  background:linear-gradient(135deg,#1a0f00,#1c1200);
+  border-top:1px solid rgba(224,90,32,0.3);
+  border-bottom:1px solid rgba(224,90,32,0.3);
+  padding:16px 20px;display:flex;align-items:center;gap:14px;
+}
+.nfb .ic{font-size:1.7rem;flex-shrink:0}
+.nfb strong{display:block;font-weight:800;font-size:0.95rem;color:var(--orange);text-transform:uppercase;letter-spacing:0.03em}
+.nfb p{font-size:0.82rem;color:#aaa;line-height:1.4;margin-top:3px}
+
+/* SECTIONS */
+.sec{padding:48px 20px}
+.sec-alt{background:var(--bg2)}
+.ey{font-size:0.7rem;font-weight:600;color:var(--yellow);text-transform:uppercase;letter-spacing:0.18em;margin-bottom:8px}
+h2{font-size:clamp(1.8rem,7vw,2.5rem);font-weight:900;line-height:1.05;text-transform:uppercase;letter-spacing:-0.01em;margin-bottom:24px}
+
+/* ACCORDION */
+.acc-list{display:flex;flex-direction:column;gap:3px}
+.ai{background:var(--bg3);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.ai.open{border-color:rgba(240,192,64,0.25)}
+.ah{
+  display:flex;align-items:center;gap:12px;
+  padding:16px;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;user-select:none;
+}
+.ai.open .ah{border-bottom:1px solid var(--border)}
+.ai-icon{font-size:1.4rem;width:28px;text-align:center;flex-shrink:0}
+.ai-name{font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:0.03em;flex:1}
+.ai-ch{color:var(--muted);font-size:0.7rem;transition:transform 0.25s;flex-shrink:0}
+.ai.open .ai-ch{transform:rotate(90deg);color:var(--yellow)}
+.ab{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
+.ab-in{padding:14px}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{
+  background:var(--bg);border:1px solid var(--border);
+  color:#bbb;font-size:0.77rem;padding:5px 10px;border-radius:3px;font-weight:500;
+}
+
+/* MOTHERBOARD */
+.mobo{
+  background:linear-gradient(135deg,#0b180b,#0e1f0e);
+  border:1px solid rgba(80,200,80,0.2);
+  border-radius:4px;padding:24px 18px;
+  position:relative;overflow:hidden;margin-top:3px;
+}
+.mobo::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#40c840,#80ff80,#40c840)}
+.mobo-b{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(80,200,80,0.1);border:1px solid rgba(80,200,80,0.25);
+  color:#60d060;font-size:0.7rem;font-weight:700;
+  letter-spacing:0.12em;text-transform:uppercase;
+  padding:4px 10px;border-radius:3px;margin-bottom:12px;
+}
+.mobo-t{font-weight:900;font-size:1.5rem;text-transform:uppercase;color:#80ff80;margin-bottom:10px;line-height:1.05}
+.mobo-d{font-size:0.87rem;color:#888;line-height:1.6;margin-bottom:14px}
+.mobo-chips{display:flex;flex-wrap:wrap;gap:7px}
+.mc{background:rgba(80,200,80,0.08);border:1px solid rgba(80,200,80,0.2);color:#60d060;font-size:0.77rem;padding:5px 10px;border-radius:3px;font-weight:600;letter-spacing:0.04em}
+
+/* TRUST */
+.trust-list{display:flex;flex-direction:column;gap:12px}
+.ti{display:flex;gap:14px;align-items:flex-start;padding:16px;background:var(--bg3);border:1px solid var(--border);border-radius:4px}
+.tn{
+  font-weight:800;font-size:0.85rem;color:var(--yellow);
+  background:var(--ydim);border:1px solid rgba(240,192,64,0.2);
+  width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+  border-radius:3px;flex-shrink:0;
+}
+.ti strong{display:block;font-weight:700;font-size:0.95rem;text-transform:uppercase;letter-spacing:0.03em;margin-bottom:3px}
+.ti p{font-size:0.83rem;color:var(--muted);line-height:1.5}
+
+/* YOUTUBE */
+.yt{
+  background:linear-gradient(135deg,#1a0000,#200000);
+  border:1px solid rgba(224,48,48,0.25);
+  border-radius:4px;padding:20px 16px;
+  display:flex;gap:14px;align-items:center;margin-top:16px;
+}
+.yt .ic{font-size:2.2rem;flex-shrink:0}
+.yt strong{display:block;font-weight:800;font-size:1rem;text-transform:uppercase;color:#ff5555;margin-bottom:3px}
+.yt p{font-size:0.81rem;color:#888;line-height:1.5;margin-bottom:10px}
+.btn-yt{
+  display:inline-flex;align-items:center;gap:7px;
+  background:#e03030;color:#fff;font-weight:700;font-size:0.85rem;
+  letter-spacing:0.04em;text-transform:uppercase;padding:8px 14px;border-radius:3px;
+}
+
+/* REVIEWS */
+.rscore{
+  display:flex;align-items:center;gap:14px;
+  padding:16px;background:var(--ydim);
+  border:1px solid rgba(240,192,64,0.2);border-radius:4px;margin-bottom:14px;
+}
+.rbig{font-weight:900;font-size:2.8rem;color:var(--yellow);line-height:1}
+.rstars{color:var(--yellow);font-size:0.95rem;letter-spacing:2px;display:block}
+.rsub{font-size:0.78rem;color:var(--muted)}
+.rlist{display:flex;flex-direction:column;gap:10px}
+.rc{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:16px}
+.rc .stars{color:var(--yellow);font-size:0.78rem;letter-spacing:2px;margin-bottom:8px}
+.rc p{font-size:0.86rem;color:#ccc;line-height:1.6;margin-bottom:8px}
+.rc .author{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em}
+.btn-more{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:12px;padding:13px;
+  border:1px solid var(--border);border-radius:4px;
+  font-weight:700;font-size:0.9rem;letter-spacing:0.04em;
+  text-transform:uppercase;background:var(--bg3);
+}
+
+/* FORM */
+.fcard{background:var(--bg2);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.ftop{background:linear-gradient(135deg,#181200,#1c1600);border-bottom:1px solid var(--border);padding:20px}
+.ftop .ey{margin-bottom:4px}
+.ftop h3{font-weight:900;font-size:1.3rem;text-transform:uppercase;margin-bottom:6px}
+.ftop p{font-size:0.82rem;color:var(--muted)}
+.fbody{padding:18px}
+.fnote{
+  display:flex;gap:10px;align-items:flex-start;
+  background:var(--ydim);border:1px solid rgba(240,192,64,0.15);
+  border-radius:3px;padding:11px;margin-bottom:16px;
+  font-size:0.79rem;color:#bbb;line-height:1.5;
+}
+.fnote .ic{color:var(--yellow);flex-shrink:0}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:0.68rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px}
+.fg input,.fg select,.fg textarea{
+  width:100%;background:var(--bg3);
+  border:1px solid var(--border);border-radius:3px;
+  color:var(--white);font-family:inherit;font-size:1rem;
+  padding:12px 13px;outline:none;
+  -webkit-appearance:none;appearance:none;
+  transition:border-color 0.15s;
+}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--yellow)}
+.fg textarea{resize:vertical;min-height:90px}
+.fg select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 13px center;padding-right:34px;
+}
+.fg select option{background:#1c1c1c}
+.btn-sub{
+  width:100%;background:var(--yellow);color:#000;
+  font-weight:800;font-size:1.05rem;letter-spacing:0.04em;
+  text-transform:uppercase;padding:16px;border:none;
+  border-radius:4px;cursor:pointer;transition:background 0.15s;
+}
+.btn-sub:hover{background:#ffd050}
+.fsuccess{display:none;text-align:center;padding:44px 20px}
+.fsuccess .ck{font-size:2.8rem;margin-bottom:14px}
+.fsuccess h4{font-weight:900;font-size:1.3rem;text-transform:uppercase;color:var(--yellow);margin-bottom:7px}
+.fsuccess p{font-size:0.88rem;color:var(--muted)}
+
+/* LOCATION */
+.lloc{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+.li{display:flex;gap:13px;align-items:flex-start;padding:14px;background:var(--bg3);border:1px solid var(--border);border-radius:4px}
+.li .ic{font-size:1.15rem;flex-shrink:0;margin-top:1px}
+.li strong{display:block;font-size:0.67rem;font-weight:600;color:var(--yellow);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:3px}
+.li span{font-size:0.88rem;color:#ccc;line-height:1.4}
+.btn-map{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px;background:var(--bg3);border:1px solid var(--border);
+  border-radius:4px;font-weight:700;font-size:0.9rem;
+  letter-spacing:0.04em;text-transform:uppercase;
+}
+
+/* FOOTER */
+footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20px 80px;text-align:center}
+.flogo{font-weight:800;font-size:1rem;color:var(--yellow);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:14px}
+.flinks{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-bottom:14px}
+.flinks a{font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em}
+.fcopy{font-size:0.7rem;color:#444}
+
+/* FLOAT */
+.fab{
+  position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:100;
+  background:var(--yellow);color:#000;
+  font-weight:800;font-size:1rem;letter-spacing:0.04em;
+  text-transform:uppercase;padding:13px 28px;
+  border-radius:50px;box-shadow:0 4px 20px rgba(240,192,64,0.35);
+  white-space:nowrap;transition:opacity 0.3s;
+}
+
+/* REVEAL */
+.rev{opacity:0;transform:translateY(16px);transition:opacity 0.5s ease,transform 0.5s ease}
+.rev.on{opacity:1;transform:translateY(0)}
+
+/* DESKTOP */
+@media(min-width:600px){
+  .hero-btns{flex-direction:row}
+  .btn-book,.btn-tel{flex:1}
+  .trust-list{display:grid;grid-template-columns:1fr 1fr}
+  .rlist{display:grid;grid-template-columns:1fr 1fr}
+  .fab{display:none}
+  footer{padding-bottom:28px}
+}
+@media(min-width:800px){
+  #hero,.sec,.sec-alt,#booking{padding-left:60px;padding-right:60px}
+  header{padding:0 60px}
+  .nfb{padding:16px 60px}
+  footer{padding:36px 60px}
+  .acc-list{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .mobo{grid-column:span 2}
+  .fab{display:none!important}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Computer Geeks Repair<small>Calgary SW · (403) 700-3920</small></div>
+  <a href="tel:4037003920" class="btn-call">📞 Call</a>
+</header>
+
+<section id="hero">
+  <div class="grid-bg"></div>
+  <div class="badge"><span class="dot"></span>Calgary SW · Open Mon–Sat</div>
+  <h1>We<br><span class="ly">Fix</span><br><span class="lo">Every<br>Thing.</span></h1>
+  <p class="hero-sub">Laptops · Desktops · Gaming Consoles · Phones.<br>Motherboard-level repair & micro soldering.<br><strong style="color:var(--white)">No Fix? No Charge.</strong></p>
+  <div class="hero-btns">
+    <a href="#booking" class="btn-book">📅 Book a Repair</a>
+    <a href="tel:4037003920" class="btn-tel">📞 (403) 700-3920</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><span class="stat-n">4.6★</span><span class="stat-l">Google Rating</span></div>
+    <div class="stat"><span class="stat-n">173</span><span class="stat-l">Reviews</span></div>
+    <div class="stat"><span class="stat-n">$0</span><span class="stat-l">If not fixed</span></div>
+  </div>
+</section>
+
+<div class="nfb">
+  <div class="ic">🛡️</div>
+  <div>
+    <strong>No Fix, No Charge — Guaranteed</strong>
+    <p>Can't fix your device? You pay absolutely nothing. No diagnostic fees, no hidden charges.</p>
+  </div>
+</div>
+
+<section class="sec sec-alt" id="services">
+  <div class="rev"><div class="ey">// What We Repair</div><h2>Our Services</h2></div>
+  <div class="acc-list rev">
+
+    <div class="ai">
+      <div class="ah" onclick="tog(this)">
+        <span class="ai-icon">💻</span><span class="ai-name">Laptop Repair</span><span class="ai-ch">▶</span>
+      </div>
+      <div class="ab"><div class="ab-in"><div class="tags">
+        <span class="tag">Screen Replacement</span><span class="tag">Keyboard / Trackpad</span>
+        <span class="tag">Battery</span><span class="tag">Charging Port</span>
+        <span class="tag">Overheating / Fan</span><span class="tag">Lenovo Specialist</span>
+        <span class="tag">HP · Dell · Acer · Asus</span><span class="tag">Water Damage</span>
+      </div></div></div>
+    </div>
+
+    <div class="ai">
+      <div class="ah" onclick="tog(this)">
+        <span class="ai-icon">🖥️</span><span class="ai-name">Desktop Repair</span><span class="ai-ch">▶</span>
+      </div>
+      <div class="ab"><div class="ab-in"><div class="tags">
+        <span class="tag">Virus & Malware Removal</span><span class="tag">RAM / SSD Upgrade</span>
+        <span class="tag">OS Reinstall</span><span class="tag">Power Supply</span>
+        <span class="tag">Custom PC Builds</span><span class="tag">Data Recovery</span>
+      </div></div></div>
+    </div>
+
+    <div class="ai">
+      <div class="ah" onclick="tog(this)">
+        <span class="ai-icon">🍎</span><span class="ai-name">MacBook / iMac</span><span class="ai-ch">▶</span>
+      </div>
+      <div class="ab"><div class="ab-in"><div class="tags">
+        <span class="tag">Screen Repair</span><span class="tag">Battery Service</span>
+        <span class="tag">Logic Board Diagnosis</span><span class="tag">Water Damage</span>
+        <span class="tag">macOS Troubleshooting</span><span class="tag">Data Recovery</span>
+      </div></div></div>
+    </div>
+
+    <div class="ai">
+      <div class="ah" onclick="tog(this)">
+        <span class="ai-icon">🎮</span><span class="ai-name">Gaming Consoles</span><span class="ai-ch">▶</span>
+      </div>
+      <div class="ab"><div class="ab-in"><div class="tags">
+        <span class="tag">PlayStation 5 / PS4</span><span class="tag">Xbox Series X/S · One</span>
+        <span class="tag">Nintendo Switch</span><span class="tag">HDMI Port Repair</span>
+        <span class="tag">Overheating</span><span class="tag">Controller Repair</span>
+        <span class="tag">Disc Drive</span><span class="tag">Power Issues</span>
+      </div></div></div>
+    </div>
+
+    <div class="ai">
+      <div class="ah" onclick="tog(this)">
+        <span class="ai-icon">📱</span><span class="ai-name">Cell Phone Repair</span><span class="ai-ch">▶</span>
+      </div>
+      <div class="ab"><div class="ab-in"><div class="tags">
+        <span class="tag">Screen / Glass</span><span class="tag">Battery Replacement</span>
+        <span class="tag">Charging Port</span><span class="tag">Water Damage</span>
+        <span class="tag">Back Glass</span><span class="tag">iPhone · Samsung · Google</span>
+      </div></div></div>
+    </div>
+
+    <div class="ai">
+      <div class="ah" onclick="tog(this)">
+        <span class="ai-icon">🔧</span><span class="ai-name">Other Electronics</span><span class="ai-ch">▶</span>
+      </div>
+      <div class="ab"><div class="ab-in"><div class="tags">
+        <span class="tag">Tablets / iPads</span><span class="tag">Printers</span>
+        <span class="tag">Monitors</span><span class="tag">Smart Home Devices</span>
+        <span class="tag">Not sure? Just ask!</span>
+      </div></div></div>
+    </div>
+
+    <div class="mobo">
+      <div class="mobo-b">⚡ Advanced Capability</div>
+      <div class="mobo-t">Motherboard Level<br>Repair & Micro Soldering</div>
+      <p class="mobo-d">Most shops stop at swapping parts. We go deeper — board-level diagnosis and professional micro soldering means we fix devices others call "dead." Save hundreds vs. buying new.</p>
+      <div class="mobo-chips">
+        <span class="mc">Micro Soldering</span><span class="mc">BGA Rework</span>
+        <span class="mc">IC Replacement</span><span class="mc">Board-Level Diagnosis</span>
+        <span class="mc">Short Circuit Repair</span><span class="mc">Liquid Damage Boards</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sec" id="why">
+  <div class="rev"><div class="ey">// Why Choose Us</div><h2>Calgary's Go-To<br>Repair Shop</h2></div>
+  <div class="trust-list rev">
+    <div class="ti"><div class="tn">01</div><div><strong>Appointment-Based</strong><p>Your device gets dedicated attention — no line, no rushed work.</p></div></div>
+    <div class="ti"><div class="tn">02</div><div><strong>No Fix, No Charge</strong><p>Can't fix it? You pay zero. No diagnostic fee, no hidden costs.</p></div></div>
+    <div class="ti"><div class="tn">03</div><div><strong>Board-Level Expertise</strong><p>Motherboard repair & micro soldering — we fix what others can't.</p></div></div>
+    <div class="ti"><div class="tn">04</div><div><strong>All Devices Welcome</strong><p>Laptops, desktops, consoles, phones — if it has a board, we'll look at it.</p></div></div>
+  </div>
+  <div class="yt rev">
+    <div class="ic">▶️</div>
+    <div>
+      <strong>Watch Our Repair Videos</strong>
+      <p>Real repair work on YouTube. See our skills before bringing your device in.</p>
+      <a href="https://www.youtube.com/@computergeeksrepair" target="_blank" class="btn-yt">▶ Visit Channel</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="reviews">
+  <div class="rev"><div class="ey">// Customer Reviews</div><h2>173 Google Reviews</h2></div>
+  <div class="rscore rev">
+    <div class="rbig">4.6</div>
+    <div><span class="rstars">★★★★★</span><span class="rsub">173 verified Google reviews</span></div>
+  </div>
+  <div class="rlist rev">
+    <div class="rc">
+      <div class="stars">★★★★★</div>
+      <p>"Brought my GPU with stripped screws and Josh handled it perfectly. He fixed the problem, gave me spares and freebies... My temps are now much lower, and everything runs smoothly. He doesn't waste time and goes straight to the problem. Highly recommended!"</p>
+      <div class="author">— Google Review</div>
+    </div>
+    <div class="rc">
+      <div class="stars">★★★★★</div>
+      <p>"Brought my PS5 in to get the HDMI port fixed as well as a cleaning. It was done within a couple hours. My PS5 is like brand new. Thanks Josh."</p>
+      <div class="author">— Google Review</div>
+    </div>
+    <div class="rc">
+      <div class="stars">★★★★★</div>
+      <p>"I brought a motherboard with a damaged socket that I had no hope of getting repaired anywhere else in Calgary and he was able to fix it by soldering the pins back on. Done same day at a more than fair price. If I could give more than 5 stars I would."</p>
+      <div class="author">— Google Review</div>
+    </div>
+  </div>
+  <a href="https://g.page/r/CXht9F2oI5j3EBM/review" target="_blank" class="btn-more rev">See All 173 Reviews on Google →</a>
+</section>
+
+<section class="sec" id="booking">
+  <div class="rev"><div class="ey">// Book a Repair</div><h2>Request an<br>Appointment</h2></div>
+  <div class="fcard rev">
+    <div class="ftop">
+      <div class="ey">Online Booking</div>
+      <h3>Not a phone person?<br>No problem.</h3>
+      <p>Fill this out and we'll contact you to confirm your appointment.</p>
+    </div>
+    <div class="fbody" id="formBody">
+      <div class="fnote"><span class="ic">📌</span><span>All repairs are by appointment only. We'll confirm via call or text — usually within a few hours.</span></div>
+      <div class="fg"><label>Your Name</label><input type="text" id="fn" placeholder="John Smith"></div>
+      <div class="fg"><label>Phone Number</label><input type="tel" id="fp" placeholder="(403) 000-0000"></div>
+      <div class="fg"><label>Email (optional)</label><input type="email" id="fe" placeholder="you@email.com"></div>
+      <div class="fg">
+        <label>Device Type</label>
+        <select id="fd">
+          <option value="">Select a device...</option>
+          <option>Laptop</option><option>Desktop / PC</option>
+          <option>MacBook / iMac</option>
+          <option>PlayStation (PS4 / PS5)</option>
+          <option>Xbox (One / Series X/S)</option>
+          <option>Nintendo Switch</option>
+          <option>Cell Phone</option><option>Other</option>
+        </select>
+      </div>
+      <div class="fg"><label>Brand & Model (if known)</label><input type="text" id="fm" placeholder="e.g. Lenovo ThinkPad, iPhone 14, PS5..."></div>
+      <div class="fg"><label>Describe the Issue</label><textarea id="fi" placeholder="What's happening? When did it start? Any details help..."></textarea></div>
+      <button class="btn-sub" onclick="sub()">Send Booking Request →</button>
+    </div>
+    <div class="fsuccess" id="fs">
+      <div class="ck">✅</div>
+      <h4>Request Sent!</h4>
+      <p>We'll contact you to confirm your appointment.<br>Usually within a few hours during business hours.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="location">
+  <div class="rev"><div class="ey">// Find Us</div><h2>Location &<br>Hours</h2></div>
+  <div class="lloc rev">
+    <div class="li"><span class="ic">📍</span><div><strong>Address</strong><span>4732 45 St SW<br>Calgary, AB T3E 3W4</span></div></div>
+    <div class="li"><span class="ic">📞</span><div><strong>Call or Text</strong><span><a href="tel:4037003920" style="color:var(--yellow)">(403) 700-3920</a></span></div></div>
+    <div class="li"><span class="ic">🕐</span><div><strong>Hours</strong><span>Mon – Fri: 10:00am – 6:00pm<br>Saturday: 10:00am – 4:00pm<br>Sunday: Closed</span></div></div>
+  </div>
+  <a href="https://maps.google.com/?q=4732+45+St+SW+Calgary+AB" target="_blank" class="btn-map rev">🗺️ Open in Google Maps →</a>
+</section>
+
+<footer>
+  <div class="flogo">Computer Geeks Repair</div>
+  <div class="flinks">
+    <a href="#services">Services</a>
+    <a href="#booking">Book a Repair</a>
+    <a href="tel:4037003920">(403) 700-3920</a>
+    <a href="https://www.youtube.com/@computergeeksrepair" target="_blank">YouTube</a>
+  </div>
+  <div class="fcopy">4732 45 St SW, Calgary AB · © 2025 Computer Geeks Repair</div>
+</footer>
+
+<a href="#booking" class="fab" id="fab">📅 Book a Repair</a>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+emailjs.init("1tIr1BT7eWPUVDa9g");
+function tog(h){
+  const item=h.parentElement,body=item.querySelector('.ab'),open=item.classList.contains('open');
+  document.querySelectorAll('.ai').forEach(i=>{i.classList.remove('open');i.querySelector('.ab').style.maxHeight='0'});
+  if(!open){item.classList.add('open');body.style.maxHeight=body.scrollHeight+'px'}
+}
+const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')}),{threshold:0.08});
+document.querySelectorAll('.rev').forEach(el=>ro.observe(el));
+const fab=document.getElementById('fab'),bs=document.getElementById('booking');
+if(fab&&bs){new IntersectionObserver(e=>{fab.style.opacity=e[0].isIntersecting?'0':'1';fab.style.pointerEvents=e[0].isIntersecting?'none':'auto'},{threshold:0.15}).observe(bs)}
+function sub(){
+  const n=document.getElementById('fn').value.trim(),p=document.getElementById('fp').value.trim();
+  const e=document.getElementById('fe').value.trim();
+  const d=document.getElementById('fd').value;
+  const m=document.getElementById('fm').value.trim();
+  const i=document.getElementById('fi').value.trim();
+  if(!n||!p){alert('Please enter your name and phone number.');return}
+  const btn=document.querySelector('.btn-sub');
+  btn.textContent='Sending...';btn.disabled=true;
+  emailjs.send('service_0jgbx4l','template_tvjkt8b',{
+    name:n, phone:p, email:e||'Not provided',
+    device:d||'Not selected', model:m||'Not provided', message:i||'No details provided'
+  }).then(()=>{
+    document.getElementById('formBody').style.display='none';
+    document.getElementById('fs').style.display='block';
+  }).catch(err=>{
+    btn.textContent='Send Booking Request →';btn.disabled=false;
+    alert('Sorry, something went wrong. Please call us at (403) 700-3920.');
+    console.error(err);
+  });
+}
+</script>
+</body>
+</html>
