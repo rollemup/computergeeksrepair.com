@@ -280,6 +280,44 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20p
 .rev{opacity:0;transform:translateY(16px);transition:opacity 0.5s ease,transform 0.5s ease}
 .rev.on{opacity:1;transform:translateY(0)}
 
+/* AI CHATBOT */
+.chat-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.chat-top{background:linear-gradient(135deg,#0a0a1a,#0f0f22);border-bottom:1px solid var(--border);padding:18px}
+.chat-top .ey{margin-bottom:4px}
+.chat-top h3{font-weight:900;font-size:1.3rem;text-transform:uppercase;margin-bottom:4px}
+.chat-top p{font-size:0.82rem;color:var(--muted)}
+.chat-messages{height:320px;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.chat-messages::-webkit-scrollbar{width:4px}
+.chat-messages::-webkit-scrollbar-track{background:var(--bg3)}
+.chat-messages::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.msg{max-width:88%;padding:11px 14px;border-radius:4px;font-size:0.88rem;line-height:1.55}
+.msg-bot{background:var(--bg3);border:1px solid var(--border);color:var(--white);align-self:flex-start}
+.msg-bot strong{color:var(--yellow)}
+.msg-user{background:var(--ydim);border:1px solid rgba(240,192,64,0.2);color:var(--white);align-self:flex-end}
+.msg-typing{background:var(--bg3);border:1px solid var(--border);align-self:flex-start;padding:11px 18px}
+.typing-dot{display:inline-block;width:7px;height:7px;background:var(--muted);border-radius:50%;animation:tdot 1.2s infinite;margin:0 2px}
+.typing-dot:nth-child(2){animation-delay:0.2s}
+.typing-dot:nth-child(3){animation-delay:0.4s}
+@keyframes tdot{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+.chat-input-row{display:flex;gap:8px;padding:12px;border-top:1px solid var(--border);background:var(--bg3)}
+.chat-input{
+  flex:1;background:var(--bg);border:1px solid var(--border);
+  border-radius:3px;color:var(--white);font-family:inherit;
+  font-size:0.95rem;padding:11px 13px;outline:none;
+  transition:border-color 0.15s;
+}
+.chat-input:focus{border-color:var(--yellow)}
+.chat-send{
+  background:var(--yellow);color:#000;border:none;
+  font-weight:800;font-size:0.85rem;letter-spacing:0.04em;
+  text-transform:uppercase;padding:11px 16px;
+  border-radius:3px;cursor:pointer;white-space:nowrap;
+  transition:background 0.15s;flex-shrink:0;
+}
+.chat-send:hover{background:#ffd050}
+.chat-send:disabled{background:#555;color:#888;cursor:not-allowed}
+.chat-disclaimer{font-size:0.7rem;color:#555;text-align:center;padding:8px 12px;border-top:1px solid var(--border)}
+
 /* DESKTOP */
 @media(min-width:600px){
   .hero-btns{flex-direction:row}
@@ -328,6 +366,7 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20p
   <div>
     <strong>No Fix, No Charge — Guaranteed</strong>
     <p>Can't fix your device? You pay absolutely nothing. No diagnostic fees, no hidden charges.</p>
+    <p style="font-size:0.72rem;color:#666;margin-top:6px;line-height:1.5;">* Terms: Applies only when a repair is attempted and cannot be completed. Does not apply to diagnosis-only requests or devices previously repaired/modified by another shop.</p>
   </div>
 </div>
 
@@ -421,7 +460,7 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20p
   <div class="rev"><div class="ey">// Why Choose Us</div><h2>Calgary's Go-To<br>Repair Shop</h2></div>
   <div class="trust-list rev">
     <div class="ti"><div class="tn">01</div><div><strong>Appointment-Based</strong><p>Your device gets dedicated attention — no line, no rushed work.</p></div></div>
-    <div class="ti"><div class="tn">02</div><div><strong>No Fix, No Charge</strong><p>Can't fix it? You pay zero. No diagnostic fee, no hidden costs.</p></div></div>
+    <div class="ti"><div class="tn">02</div><div><strong>No Fix, No Charge</strong><p>Can't fix it? You pay zero. No diagnostic fee, no hidden costs. <span style="font-size:0.75rem;color:#555;">*Applies to repair attempts only. Excludes diagnosis-only visits and devices previously worked on by another shop.</span></p></div></div>
     <div class="ti"><div class="tn">03</div><div><strong>Board-Level Expertise</strong><p>Motherboard repair & micro soldering — we fix what others can't.</p></div></div>
     <div class="ti"><div class="tn">04</div><div><strong>All Devices Welcome</strong><p>Laptops, desktops, consoles, phones — if it has a board, we'll look at it.</p></div></div>
   </div>
@@ -461,7 +500,27 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20p
   <a href="https://g.page/r/CXht9F2oI5j3EBM/review" target="_blank" class="btn-more rev">See All 173 Reviews on Google →</a>
 </section>
 
-<section class="sec" id="booking">
+<section class="sec" id="diagnose">
+  <div class="rev"><div class="ey">// AI Repair Assistant</div><h2>Not Sure<br>What's Wrong?</h2></div>
+  <p class="hero-sub rev" style="margin-bottom:20px">Describe your device's symptoms and our AI will help diagnose the issue — free, instant, no signup needed.</p>
+  <div class="chat-wrap rev">
+    <div class="chat-top">
+      <div class="ey">// Powered by AI</div>
+      <h3>🤖 Device Diagnostic Chat</h3>
+      <p>Tell me your device type and what's happening. I'll help figure out the problem.</p>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg msg-bot">👋 Hey! I'm the <strong>Computer Geeks Repair AI assistant</strong>.<br><br>Tell me what device you have and what symptoms you're seeing — I'll help diagnose the issue and let you know if it's something we can fix! 🔧</div>
+    </div>
+    <div class="chat-input-row">
+      <input class="chat-input" id="chatInput" type="text" placeholder="e.g. My Lenovo laptop won't turn on..." maxlength="400" onkeydown="if(event.key==='Enter')sendChat()">
+      <button class="chat-send" id="chatBtn" onclick="sendChat()">Send →</button>
+    </div>
+    <div class="chat-disclaimer">⚡ AI diagnostic tool — for booking a repair, use the form below or call (403) 700-3920</div>
+  </div>
+</section>
+
+<section class="sec sec-alt" id="booking">
   <div class="rev"><div class="ey">// Book a Repair</div><h2>Request an<br>Appointment</h2></div>
   <div class="fcard rev">
     <div class="ftop">
@@ -512,6 +571,7 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20p
   <div class="flogo">Computer Geeks Repair</div>
   <div class="flinks">
     <a href="#services">Services</a>
+    <a href="#diagnose">AI Diagnose</a>
     <a href="#booking">Book a Repair</a>
     <a href="tel:4037003920">(403) 700-3920</a>
     <a href="https://www.youtube.com/@computergeeksrepair" target="_blank">YouTube</a>
@@ -523,7 +583,77 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20p
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-emailjs.init("1tIr1BT7eWPUVDa9g");
+// AI CHATBOT
+const chatHistory = [];
+async function sendChat() {
+  const input = document.getElementById('chatInput');
+  const btn = document.getElementById('chatBtn');
+  const messages = document.getElementById('chatMessages');
+  const text = input.value.trim();
+  if (!text) return;
+
+  // Add user message
+  const userMsg = document.createElement('div');
+  userMsg.className = 'msg msg-user';
+  userMsg.textContent = text;
+  messages.appendChild(userMsg);
+  input.value = '';
+  btn.disabled = true;
+
+  // Add typing indicator
+  const typing = document.createElement('div');
+  typing.className = 'msg msg-typing';
+  typing.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
+  messages.appendChild(typing);
+  messages.scrollTop = messages.scrollHeight;
+
+  chatHistory.push({ role: 'user', content: text });
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-api-key': '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', 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: `You are a friendly AI diagnostic assistant for Computer Geeks Repair, a device repair shop in Calgary SW, Canada run by Josh, an expert in motherboard-level repair and micro soldering.
+
+YOUR ROLE: Help users understand what's likely wrong with their device — but NEVER provide DIY repair instructions, part names to buy, or step-by-step fixes. Your goal is to get them to book a repair with Josh.
+
+ALWAYS follow this structure:
+1. Acknowledge the symptom warmly
+2. Give a general diagnosis in simple terms (e.g. "This sounds like a charging port issue")
+3. Mention the risk of ignoring it ("These issues can get worse over time and damage other components")
+4. End EVERY response with: "📅 Book a free diagnosis at computergeeksrepair.com — No Fix, No Charge guaranteed!"
+
+NEVER: give repair tutorials, recommend buying parts, suggest other shops, or answer non-repair questions.
+
+Keep responses under 120 words. Be warm, friendly, and reassuring. Plain text only, no markdown.`,
+        messages: chatHistory
+      })
+    });
+    const data = await res.json();
+    const reply = data.content[0].text;
+    chatHistory.push({ role: 'assistant', content: reply });
+
+    typing.remove();
+    const botMsg = document.createElement('div');
+    botMsg.className = 'msg msg-bot';
+    botMsg.innerHTML = reply.replace(/\n/g, '<br>');
+    messages.appendChild(botMsg);
+  } catch (e) {
+    typing.remove();
+    const errMsg = document.createElement('div');
+    errMsg.className = 'msg msg-bot';
+    errMsg.textContent = 'Sorry, something went wrong. Please call us at (403) 700-3920 and we\'ll be happy to help!';
+    messages.appendChild(errMsg);
+  }
+
+  messages.scrollTop = messages.scrollHeight;
+  btn.disabled = false;
+  input.focus();
+}
+
 function tog(h){
   const item=h.parentElement,body=item.querySelector('.ab'),open=item.classList.contains('open');
   document.querySelectorAll('.ai').forEach(i=>{i.classList.remove('open');i.querySelector('.ab').style.maxHeight='0'});
