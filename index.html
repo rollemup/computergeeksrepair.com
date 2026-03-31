@@ -670,10 +670,21 @@ function sub(){
   if(!n||!p){alert('Please enter your name and phone number.');return}
   const btn=document.querySelector('.btn-sub');
   btn.textContent='Sending...';btn.disabled=true;
-  emailjs.send('service_0jgbx4l','template_tvjkt8b',{
+
+  const tgMsg=`🔔 New Booking Request!\n\n👤 Name: ${n}\n📞 Phone: ${p}\n📧 Email: ${e||'Not provided'}\n💻 Device: ${d||'Not selected'}\n🔧 Model: ${m||'Not provided'}\n📝 Issue: ${i||'No details provided'}`;
+
+  const tgPromise=fetch(`https://api.telegram.org/bot8775064443:AAECG1f98yQos2-wRct9nZmKnNMjb8DiHFU/sendMessage`,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({chat_id:'8481343708',text:tgMsg})
+  });
+
+  const ejPromise=emailjs.send('service_0jgbx4l','template_tvjkt8b',{
     name:n, phone:p, email:e||'Not provided',
     device:d||'Not selected', model:m||'Not provided', message:i||'No details provided'
-  }).then(()=>{
+  });
+
+  Promise.allSettled([tgPromise,ejPromise]).then(()=>{
     document.getElementById('formBody').style.display='none';
     document.getElementById('fs').style.display='block';
   }).catch(err=>{
