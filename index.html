@@ -581,6 +581,7 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20p
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
+emailjs.init("1tIr1BT7eWPUVDa9g");
 // AI CHATBOT
 const chatHistory = [];
 async function sendChat() {
@@ -683,7 +684,7 @@ function sub(){
 
   const tgMsg=`🔔 New Booking Request!\n\n👤 Name: ${n}\n📞 Phone: ${p}\n📧 Email: ${e||'Not provided'}\n💻 Device: ${d||'Not selected'}\n🔧 Model: ${m||'Not provided'}\n📝 Issue: ${i||'No details provided'}`;
 
-  const tgPromise=fetch(`https://api.telegram.org/bot8775064443:AAGLDYIDjtM3RI6v14PUn4P-SvPCTwwg5ks/sendMessage`,{
+  const tgPromise=fetch(`https://api.telegram.org/bot8775064443:AAGZRjrFJKHZ2FnjS2ZKscN1sH5MoFP40TM/sendMessage`,{
     method:'POST',
     headers:{'Content-Type':'application/json'},
     body:JSON.stringify({chat_id:'8481343708',text:tgMsg})
