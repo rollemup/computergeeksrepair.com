@@ -499,25 +499,6 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20p
   <a href="https://g.page/r/CXht9F2oI5j3EBM/review" target="_blank" class="btn-more rev">See All 186 Reviews on Google →</a>
 </section>
 
-<section class="sec" id="diagnose">
-  <div class="rev"><div class="ey">// AI Repair Assistant</div><h2>Not Sure<br>What's Wrong?</h2></div>
-  <p class="hero-sub rev" style="margin-bottom:20px">Describe your device's symptoms and our AI will help diagnose the issue — free, instant, no signup needed.</p>
-  <div class="chat-wrap rev">
-    <div class="chat-top">
-      <div class="ey">// Powered by AI</div>
-      <h3>🤖 Device Diagnostic Chat</h3>
-      <p>Tell me your device type and what's happening. I'll help figure out the problem.</p>
-    </div>
-    <div class="chat-messages" id="chatMessages">
-      <div class="msg msg-bot">👋 Hey! I'm the <strong>Computer Geeks Repair AI assistant</strong>.<br><br>Tell me what device you have and what symptoms you're seeing — I'll help diagnose the issue and let you know if it's something we can fix! 🔧</div>
-    </div>
-    <div class="chat-input-row">
-      <input class="chat-input" id="chatInput" type="text" placeholder="e.g. My Lenovo laptop won't turn on..." maxlength="400" onkeydown="if(event.key==='Enter')sendChat()">
-      <button class="chat-send" id="chatBtn" onclick="sendChat()">Send →</button>
-    </div>
-    <div class="chat-disclaimer">⚡ AI diagnostic tool — for booking a repair, use the form below or call (403) 700-3920</div>
-  </div>
-</section>
 
 <section class="sec sec-alt" id="booking">
   <div class="rev"><div class="ey">// Book a Repair</div><h2>Request an<br>Appointment</h2></div>
@@ -585,75 +566,6 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20p
 emailjs.init("1tIr1BT7eWPUVDa9g");
 // AI CHATBOT
 const chatHistory = [];
-async function sendChat() {
-  const input = document.getElementById('chatInput');
-  const btn = document.getElementById('chatBtn');
-  const messages = document.getElementById('chatMessages');
-  const text = input.value.trim();
-  if (!text) return;
-
-  // Add user message
-  const userMsg = document.createElement('div');
-  userMsg.className = 'msg msg-user';
-  userMsg.textContent = text;
-  messages.appendChild(userMsg);
-  input.value = '';
-  btn.disabled = true;
-
-  // Add typing indicator
-  const typing = document.createElement('div');
-  typing.className = 'msg msg-typing';
-  typing.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
-  messages.appendChild(typing);
-  messages.scrollTop = messages.scrollHeight;
-
-  chatHistory.push({ role: 'user', content: text });
-
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-api-key': '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', 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: `You are a friendly AI diagnostic assistant for Computer Geeks Repair, a device repair shop in Calgary SW, Canada run by Josh, an expert in motherboard-level repair and micro soldering.
-
-YOUR ROLE: Help users understand what's likely wrong with their device — but NEVER provide DIY repair instructions, part names to buy, or step-by-step fixes. Your goal is to get them to book a repair with Josh.
-
-ALWAYS follow this structure:
-1. Acknowledge the symptom warmly
-2. Give a general diagnosis in simple terms (e.g. "This sounds like a charging port issue")
-3. Mention the risk of ignoring it ("These issues can get worse over time and damage other components")
-4. End EVERY response with: "📅 Book a free diagnosis at computergeeksrepair.com — No Fix, No Charge guaranteed!"
-
-NEVER: give repair tutorials, recommend buying parts, suggest other shops, or answer non-repair questions.
-
-Keep responses under 120 words. Be warm, friendly, and reassuring. Plain text only, no markdown.`,
-        messages: chatHistory
-      })
-    });
-    const data = await res.json();
-    const reply = data.content[0].text;
-    chatHistory.push({ role: 'assistant', content: reply });
-
-    typing.remove();
-    const botMsg = document.createElement('div');
-    botMsg.className = 'msg msg-bot';
-    botMsg.innerHTML = reply.replace(/\n/g, '<br>');
-    messages.appendChild(botMsg);
-  } catch (e) {
-    typing.remove();
-    const errMsg = document.createElement('div');
-    errMsg.className = 'msg msg-bot';
-    errMsg.textContent = 'Sorry, something went wrong. Please call us at (403) 700-3920 and we\'ll be happy to help!';
-    messages.appendChild(errMsg);
-  }
-
-  messages.scrollTop = messages.scrollHeight;
-  btn.disabled = false;
-  input.focus();
-}
-
 function tog(h){
   const item=h.parentElement,body=item.querySelector('.ab'),open=item.classList.contains('open');
   document.querySelectorAll('.ai').forEach(i=>{i.classList.remove('open');i.querySelector('.ab').style.maxHeight='0'});
