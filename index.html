@@ -105,6 +105,36 @@ h1{
 .nfb strong{display:block;font-weight:800;font-size:0.95rem;color:var(--orange);text-transform:uppercase;letter-spacing:0.03em}
 .nfb p{font-size:0.82rem;color:#aaa;line-height:1.4;margin-top:3px}
 
+/* CONSOLE DEEP CLEAN SPECIAL */
+.cdc{
+  background:linear-gradient(135deg,#0d0020,#180030,#0a0a1a);
+  border-top:2px solid rgba(138,43,226,0.6);
+  border-bottom:2px solid rgba(138,43,226,0.6);
+  padding:22px 20px;
+  display:flex;align-items:center;gap:16px;
+  position:relative;overflow:hidden;
+}
+.cdc::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:linear-gradient(90deg,transparent,rgba(138,43,226,0.08),transparent);
+  animation:cdcshine 3s ease-in-out infinite;
+}
+@keyframes cdcshine{0%,100%{opacity:0}50%{opacity:1}}
+.cdc-icon{font-size:2.2rem;flex-shrink:0;filter:drop-shadow(0 0 8px rgba(138,43,226,0.8))}
+.cdc-body{flex:1;min-width:0}
+.cdc-tag{display:inline-block;background:rgba(138,43,226,0.3);border:1px solid rgba(138,43,226,0.6);color:#c084fc;font-size:0.65rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-bottom:6px}
+.cdc-title{font-size:1.05rem;font-weight:800;color:#fff;line-height:1.2;margin-bottom:3px}
+.cdc-sub{font-size:0.8rem;color:#a78bfa;margin-bottom:6px}
+.cdc-price{font-size:1.4rem;font-weight:900;color:#c084fc;letter-spacing:-0.02em}
+.cdc-price span{font-size:0.8rem;font-weight:500;color:#888;margin-left:4px}
+.cdc-btn{display:inline-block;margin-top:8px;background:linear-gradient(135deg,#7c3aed,#5b21b6);color:#fff;font-size:0.8rem;font-weight:700;padding:8px 16px;border-radius:5px;text-decoration:none;border:1px solid rgba(196,132,252,0.3);white-space:nowrap}
+.cdc-btn:hover{background:linear-gradient(135deg,#8b5cf6,#6d28d9)}
+@media(min-width:600px){
+  .cdc{padding:22px 60px}
+  .cdc-title{font-size:1.15rem}
+  .cdc-price{font-size:1.6rem}
+}
+
 /* SECTIONS */
 .sec{padding:48px 20px}
 .sec-alt{background:var(--bg2)}
@@ -364,6 +394,17 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20p
     <strong>No Fix, No Charge — Guaranteed</strong>
     <p>Can't fix your device? You pay absolutely nothing. No diagnostic fees, no hidden charges.</p>
     <p style="font-size:0.72rem;color:#666;margin-top:6px;line-height:1.5;">* Terms: Applies only when a repair is attempted and cannot be completed. Does not apply to diagnosis-only requests or devices previously repair attempted.</p>
+  </div>
+</div>
+
+<div class="cdc">
+  <div class="cdc-icon">🎮</div>
+  <div class="cdc-body">
+    <div class="cdc-tag">Always-On Special</div>
+    <div class="cdc-title">Console Deep Clean</div>
+    <div class="cdc-sub">PS5 · Xbox — Full Teardown Clean + PTM7950 Thermal Pad Upgrade</div>
+    <div class="cdc-price">$125 <span>all-in</span></div>
+    <a class="cdc-btn" href="#booking">Book Now →</a>
   </div>
 </div>
 
