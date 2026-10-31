@@ -31,7 +31,7 @@
   "@context":"https://schema.org",
   "@type":"FAQPage",
   "mainEntity":[
-    {"@type":"Question","name":"How much does GPU repair cost in Calgary?","acceptedAnswer":{"@type":"Answer","text":"At Computer Geeks Repair in Calgary SW, graphics card repair labour starts at $350 and goes up to $650 depending on the fault (parts and tax extra). If the card can't be repaired you only pay a $45 diagnostic fee."}},
+    {"@type":"Question","name":"How much does GPU repair cost at Computer Geeks Repair?","acceptedAnswer":{"@type":"Answer","text":"At Computer Geeks Repair in Calgary SW, graphics card repair labour starts at $350 and goes up to $650 depending on the fault (parts and tax extra). If the card can't be repaired you only pay a $45 diagnostic fee."}},
     {"@type":"Question","name":"My PC won't turn on when the graphics card is installed. Can it be fixed?","acceptedAnswer":{"@type":"Answer","text":"Usually yes. This is most often a shorted component on the card's power circuit (a MOSFET, capacitor or power stage), which makes the power supply shut off to protect itself. It's one of the most common faults we repair at board level."}},
     {"@type":"Question","name":"Is it worth repairing a graphics card instead of buying a new one?","acceptedAnswer":{"@type":"Answer","text":"For mid- and high-end cards like the RTX 3060 to RTX 4090, a board-level repair usually costs far less than a replacement card. Labour is $350–$650 depending on the fault, so you know the range before you drop it off."}},
     {"@type":"Question","name":"What's included with every GPU repair?","acceptedAnswer":{"@type":"Answer","text":"Every GPU repair includes PTM7950 phase-change thermal material on the GPU core. Full thermal pad replacement is available for +$95."}}
@@ -106,7 +106,7 @@ h2{font-size:clamp(1.8rem,7vw,2.5rem);font-weight:900;line-height:1.05;text-tran
 .rc .stars{color:var(--yellow);font-size:0.8rem;letter-spacing:2px;margin-bottom:8px}
 .rc p{font-size:0.9rem;color:#ccc;line-height:1.6;margin-bottom:8px}
 .rc .author{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em}
-.yt{background:linear-gradient(135deg,#1a0000,#200000);border:1px solid rgba(224,48,48,0.25);border-radius:4px;padding:20px 16px;display:flex;gap:14px;align-items:center;margin-top:12px}
+.yt-unused{background:linear-gradient(135deg,#1a0000,#200000);border:1px solid rgba(224,48,48,0.25);border-radius:4px;padding:20px 16px;display:flex;gap:14px;align-items:center;margin-top:12px}
 .yt .ic{font-size:2.2rem;flex-shrink:0}
 .yt strong{display:block;font-weight:800;font-size:1rem;text-transform:uppercase;color:#ff5555;margin-bottom:3px}
 .yt p{font-size:0.81rem;color:#888;line-height:1.5;margin-bottom:10px}
@@ -229,16 +229,17 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20p
   </div>
 </section>
 
-<section class="sec" id="proof">
-  <div class="ey">// See Our Work</div>
-  <h2>Real Repairs on YouTube</h2>
-  <div class="yt" style="margin-top:0">
-    <div class="ic">▶️</div>
-    <div>
-      <strong>Watch Our Repairs</strong>
-      <p>See real board-level repair work on our YouTube channel before you bring your card in.</p>
-      <a href="https://www.youtube.com/@computergeeksrepair" target="_blank" rel="noopener" class="btn-yt">▶ Visit Channel</a>
-    </div>
+<section class="sec" id="tips">
+  <div class="ey">// Before You Install</div>
+  <h2>GPU Install Tips</h2>
+  <p class="lead">Most of the dead cards we see could have been avoided. Check these every time you install or move a graphics card.</p>
+  <div class="sym">
+    <div class="sy"><span class="ic">🔌</span><div><strong>Push the power connector all the way in</strong><p>Especially 12VHPWR / 12V-2x6 on RTX 40 &amp; 50 cards. It must click in with no gap. A half-seated plug is the #1 cause of melted connectors.</p></div></div>
+    <div class="sy"><span class="ic">↪️</span><div><strong>Don't bend the cable at the plug</strong><p>Keep the power cable straight for about 35 mm before any bend. A sharp bend right at the connector pulls the pins loose.</p></div></div>
+    <div class="sy"><span class="ic">🧵</span><div><strong>Use separate PCIe cables</strong><p>For cards with two or more 8-pin plugs, run a separate cable from the PSU to each one instead of one daisy-chained cable.</p></div></div>
+    <div class="sy"><span class="ic">⏻</span><div><strong>Power off and unplug first</strong><p>Switch off the PSU and pull the power cord before installing or removing the card. Never hot-plug a GPU.</p></div></div>
+    <div class="sy"><span class="ic">📐</span><div><strong>Support heavy cards</strong><p>Lock the PCIe slot latch, screw in the bracket and use a support stand. GPU sag can crack solder joints and the PCIe area over time.</p></div></div>
+    <div class="sy"><span class="ic">🖥️</span><div><strong>Plug the monitor into the GPU</strong><p>Use the graphics card's outputs, not the motherboard's. Many "no display" cards are actually fine.</p></div></div>
   </div>
 </section>
 
@@ -246,7 +247,7 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20p
   <div class="ey">// FAQ</div>
   <h2>GPU Repair Questions</h2>
   <div class="faq">
-    <details class="fq"><summary>How much does GPU repair cost in Calgary?</summary><p>Labour starts at $350 and goes up to $650 depending on the fault (parts and tax extra). If the card can't be repaired you only pay a $45 diagnostic fee.</p></details>
+    <details class="fq"><summary>How much does GPU repair cost at Computer Geeks Repair?</summary><p>Labour starts at $350 and goes up to $650 depending on the fault (parts and tax extra). If the card can't be repaired you only pay a $45 diagnostic fee.</p></details>
     <details class="fq"><summary>My PC won't turn on when the graphics card is installed. Can it be fixed?</summary><p>Usually, yes. This is most often a shorted component on the card's power circuit, which makes the power supply shut off to protect itself. It's one of the most common faults we repair.</p></details>
     <details class="fq"><summary>Is repairing worth it vs. buying a new card?</summary><p>For cards like the RTX 3060 up to the RTX 4090, a board-level repair usually costs far less than a replacement. Labour is $350–$650 depending on the fault, so you know the range up front.</p></details>
     <details class="fq"><summary>How long does a GPU repair take?</summary><p>It depends on the fault and whether parts need to be ordered. Ask us at drop-off and we'll give you an estimate.</p></details>
