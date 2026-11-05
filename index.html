@@ -107,21 +107,25 @@ h1{
 
 /* CONSOLE DEEP CLEAN SPECIAL */
 .cdc{
-  background:linear-gradient(135deg,#0d0020,#180030,#0a0a1a);
+  background:linear-gradient(180deg,#0d0020,#120028);
   border-top:2px solid rgba(138,43,226,0.6);
   border-bottom:2px solid rgba(138,43,226,0.6);
-  padding:22px 20px;
-  display:flex;align-items:center;gap:16px;
   position:relative;overflow:hidden;
 }
-.cdc::before{
+.cdc-img{width:100%;display:block}
+.cdc-content{
+  padding:20px 20px 24px;
+  display:flex;align-items:center;gap:16px;
+  position:relative;
+}
+.cdc-content::before{
   content:'';position:absolute;top:0;left:0;right:0;bottom:0;
-  background:linear-gradient(90deg,transparent,rgba(138,43,226,0.08),transparent);
+  background:linear-gradient(90deg,transparent,rgba(138,43,226,0.07),transparent);
   animation:cdcshine 3s ease-in-out infinite;
 }
 @keyframes cdcshine{0%,100%{opacity:0}50%{opacity:1}}
 .cdc-icon{font-size:2.2rem;flex-shrink:0;filter:drop-shadow(0 0 8px rgba(138,43,226,0.8))}
-.cdc-body{flex:1;min-width:0}
+.cdc-body{flex:1;min-width:0;position:relative}
 .cdc-tag{display:inline-block;background:rgba(138,43,226,0.3);border:1px solid rgba(138,43,226,0.6);color:#c084fc;font-size:0.65rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-bottom:6px}
 .cdc-title{font-size:1.05rem;font-weight:800;color:#fff;line-height:1.2;margin-bottom:3px}
 .cdc-sub{font-size:0.8rem;color:#a78bfa;margin-bottom:6px}
@@ -130,7 +134,7 @@ h1{
 .cdc-btn{display:inline-block;margin-top:8px;background:linear-gradient(135deg,#7c3aed,#5b21b6);color:#fff;font-size:0.8rem;font-weight:700;padding:8px 16px;border-radius:5px;text-decoration:none;border:1px solid rgba(196,132,252,0.3);white-space:nowrap}
 .cdc-btn:hover{background:linear-gradient(135deg,#8b5cf6,#6d28d9)}
 @media(min-width:600px){
-  .cdc{padding:22px 60px}
+  .cdc-content{padding:22px 60px}
   .cdc-title{font-size:1.15rem}
   .cdc-price{font-size:1.6rem}
 }
@@ -391,19 +395,23 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20p
 <div class="nfb">
   <div class="ic">🛡️</div>
   <div>
-    <strong>Low-Risk Repairs</strong>
-    <p>If we can't fix your device, you don't pay for most repairs. Board-level repairs (motherboard, GPU, console) are a flat $45 if unrepairable.</p>
+    <strong>No Fix, No Charge — Guaranteed</strong>
+    <p>Can't fix your device? You pay absolutely nothing. No diagnostic fees, no hidden charges.</p>
+    <p style="font-size:0.72rem;color:#666;margin-top:6px;line-height:1.5;">* Terms: Applies only when a repair is attempted and cannot be completed. Does not apply to diagnosis-only requests or devices previously repair attempted.</p>
   </div>
 </div>
 
 <div class="cdc">
-  <div class="cdc-icon">🎮</div>
-  <div class="cdc-body">
-    <div class="cdc-tag">Always-On Special</div>
-    <div class="cdc-title">Console Deep Clean</div>
-    <div class="cdc-sub">PS5 · Xbox — Full Teardown Clean + PTM7950 Thermal Pad Upgrade</div>
-    <div class="cdc-price">$125 <span>all-in</span></div>
-    <a class="cdc-btn" href="#booking">Book Now →</a>
+  <img class="cdc-img" src="xbox-clean.jpg" alt="Xbox Series X fully disassembled for deep clean service at Computer Geeks Repair">
+  <div class="cdc-content">
+    <div class="cdc-icon">🎮</div>
+    <div class="cdc-body">
+      <div class="cdc-tag">Always-On Special</div>
+      <div class="cdc-title">Console Deep Clean</div>
+      <div class="cdc-sub">PS5 · Xbox — Full Teardown Clean + PTM7950 Thermal Pad Upgrade</div>
+      <div class="cdc-price">$125 <span>all-in</span></div>
+      <a class="cdc-btn" href="#booking">Book Now →</a>
+    </div>
   </div>
 </div>
 
@@ -432,18 +440,6 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20p
         <span class="tag">Virus & Malware Removal</span><span class="tag">RAM / SSD Upgrade</span>
         <span class="tag">OS Reinstall</span><span class="tag">Power Supply</span>
         <span class="tag">Custom PC Builds</span><span class="tag">Data Recovery</span>
-      </div></div></div>
-    </div>
-
-    <div class="ai">
-      <div class="ah" onclick="tog(this)">
-        <span class="ai-icon"><svg viewBox="0 0 32 24" width="26" height="20" aria-hidden="true" style="vertical-align:middle"><rect x="1" y="3" width="3" height="18" rx="1" fill="#9aa0a6"/><rect x="4" y="4" width="27" height="14" rx="2" fill="#2b2f36" stroke="#f0c040" stroke-width="1.2"/><circle cx="12" cy="11" r="5" fill="#111" stroke="#9aa0a6" stroke-width="1"/><circle cx="12" cy="11" r="1.3" fill="#9aa0a6"/><circle cx="24" cy="11" r="5" fill="#111" stroke="#9aa0a6" stroke-width="1"/><circle cx="24" cy="11" r="1.3" fill="#9aa0a6"/><path d="M12 6.5v9M7.5 11h9M24 6.5v9M19.5 11h9" stroke="#555" stroke-width="0.8"/><rect x="8" y="18" width="14" height="3" fill="#d4a017"/><path d="M10 18v3M12 18v3M14 18v3M16 18v3M18 18v3M20 18v3" stroke="#8a6a00" stroke-width="0.6"/></svg></span><span class="ai-name">Graphics Card (GPU)</span><span class="ai-ch">▶</span>
-      </div>
-      <div class="ab"><div class="ab-in"><div class="tags">
-        <span class="tag">PC Won't Turn On With GPU</span><span class="tag">No Display</span>
-        <span class="tag">Artifacts / Crashes</span><span class="tag">Burnt Power Connector</span>
-        <span class="tag">Overheating</span><span class="tag">NVIDIA RTX</span>
-        <a class="tag" href="gpu-repair.html" style="color:var(--yellow);border-color:rgba(240,192,64,0.4)">GPU Repair Prices &amp; Info →</a>
       </div></div></div>
     </div>
 
@@ -511,7 +507,7 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20p
   <div class="rev"><div class="ey">// Why Choose Us</div><h2>Calgary's Go-To<br>Repair Shop</h2></div>
   <div class="trust-list rev">
     <div class="ti"><div class="tn">01</div><div><strong>Appointment-Based</strong><p>Your device gets dedicated attention — no line, no rushed work.</p></div></div>
-    <div class="ti"><div class="tn">02</div><div><strong>Low-Risk Repairs</strong><p>If we can't fix it, you don't pay for most repairs. Board-level repairs are a flat $45 if unrepairable — no hidden costs.</p></div></div>
+    <div class="ti"><div class="tn">02</div><div><strong>No Fix, No Charge</strong><p>Can't fix it? You pay zero. No diagnostic fee, no hidden costs. <span style="font-size:0.75rem;color:#555;">*Applies to repair attempts only. Excludes diagnosis-only visits and devices previously repair attempted.</span></p></div></div>
     <div class="ti"><div class="tn">03</div><div><strong>Board-Level Expertise</strong><p>Motherboard repair & micro soldering — we fix what others can't.</p></div></div>
     <div class="ti"><div class="tn">04</div><div><strong>All Devices Welcome</strong><p>Laptops, desktops, consoles, phones — if it has a board, we'll look at it.</p></div></div>
   </div>
@@ -570,7 +566,6 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20p
         <select id="fd">
           <option value="">Select a device...</option>
           <option>Laptop</option><option>Desktop / PC</option>
-          <option>Graphics Card (GPU)</option>
           <option>MacBook / iMac</option>
           <option>PlayStation (PS4 / PS5)</option>
           <option>Xbox (One / Series X/S)</option>
@@ -604,7 +599,6 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20p
   <div class="flogo">Computer Geeks Repair</div>
   <div class="flinks">
     <a href="#services">Services</a>
-    <a href="gpu-repair.html">GPU Repair</a>
     <a href="#diagnose">AI Diagnose</a>
     <a href="#booking">Book a Repair</a>
     <a href="tel:4037003920">(403) 700-3920</a>
