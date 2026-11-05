@@ -112,7 +112,13 @@ h1{
   border-bottom:2px solid rgba(138,43,226,0.6);
   position:relative;overflow:hidden;
 }
-.cdc-img{width:100%;display:block}
+.cdc-img-wrap{position:relative;display:inline-block;flex-shrink:0}
+.cdc-img{width:110px;height:62px;object-fit:cover;border-radius:6px;border:1px solid rgba(138,43,226,0.5);display:block;cursor:pointer;transition:transform 0.2s ease,box-shadow 0.2s ease}
+.cdc-img-wrap:hover .cdc-img{transform:scale(1.08);box-shadow:0 4px 20px rgba(138,43,226,0.5)}
+.cdc-img-wrap::after{content:'';position:absolute;inset:0;border-radius:6px;pointer-events:none}
+@media(min-width:600px){
+  .cdc-img{width:160px;height:90px}
+}
 .cdc-content{
   padding:20px 20px 24px;
   display:flex;align-items:center;gap:16px;
@@ -402,7 +408,9 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20p
 </div>
 
 <div class="cdc">
-  <img class="cdc-img" src="xbox-clean.jpg" alt="Xbox Series X fully disassembled for deep clean service at Computer Geeks Repair">
+  <div class="cdc-img-wrap">
+    <img class="cdc-img" src="xbox-clean.jpg" alt="Xbox Series X fully disassembled for deep clean service at Computer Geeks Repair">
+  </div>
   <div class="cdc-content">
     <div class="cdc-icon">🎮</div>
     <div class="cdc-body">
