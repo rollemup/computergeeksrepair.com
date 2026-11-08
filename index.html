@@ -105,34 +105,37 @@ h1{
 .nfb strong{display:block;font-weight:800;font-size:0.95rem;color:var(--orange);text-transform:uppercase;letter-spacing:0.03em}
 .nfb p{font-size:0.82rem;color:#aaa;line-height:1.4;margin-top:3px}
 
-/* CONSOLE DEEP CLEAN SPECIAL */
+/* CONSOLE SPECIAL BANNER */
 .cdc{
   background:linear-gradient(135deg,#0d0020,#180030,#0a0a1a);
   border-top:2px solid rgba(138,43,226,0.6);
   border-bottom:2px solid rgba(138,43,226,0.6);
-  padding:22px 20px;
-  display:flex;align-items:center;gap:16px;
+  padding:14px 20px;
   position:relative;overflow:hidden;
 }
 .cdc::before{
   content:'';position:absolute;top:0;left:0;right:0;bottom:0;
   background:linear-gradient(90deg,transparent,rgba(138,43,226,0.08),transparent);
   animation:cdcshine 3s ease-in-out infinite;
+  pointer-events:none;
 }
 @keyframes cdcshine{0%,100%{opacity:0}50%{opacity:1}}
-.cdc-icon{font-size:2.2rem;flex-shrink:0;filter:drop-shadow(0 0 8px rgba(138,43,226,0.8))}
+.cdc-row{display:flex;align-items:center;gap:14px}
+.cdc-divider{border:none;border-top:1px solid rgba(138,43,226,0.3);margin:10px 0}
+.cdc-icon{font-size:1.9rem;flex-shrink:0;filter:drop-shadow(0 0 8px rgba(138,43,226,0.8))}
 .cdc-body{flex:1;min-width:0}
-.cdc-tag{display:inline-block;background:rgba(138,43,226,0.3);border:1px solid rgba(138,43,226,0.6);color:#c084fc;font-size:0.65rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-bottom:6px}
-.cdc-title{font-size:1.05rem;font-weight:800;color:#fff;line-height:1.2;margin-bottom:3px}
-.cdc-sub{font-size:0.8rem;color:#a78bfa;margin-bottom:6px}
-.cdc-price{font-size:1.4rem;font-weight:900;color:#c084fc;letter-spacing:-0.02em}
-.cdc-price span{font-size:0.8rem;font-weight:500;color:#888;margin-left:4px}
-.cdc-btn{display:inline-block;margin-top:8px;background:linear-gradient(135deg,#7c3aed,#5b21b6);color:#fff;font-size:0.8rem;font-weight:700;padding:8px 16px;border-radius:5px;text-decoration:none;border:1px solid rgba(196,132,252,0.3);white-space:nowrap}
+.cdc-title{font-size:0.98rem;font-weight:800;color:#fff;line-height:1.2;margin-bottom:2px}
+.cdc-sub{font-size:0.75rem;color:#a78bfa;margin-bottom:4px}
+.cdc-price{font-size:1.3rem;font-weight:900;color:#c084fc;letter-spacing:-0.02em;display:inline}
+.cdc-price span{font-size:0.75rem;font-weight:500;color:#888;margin-left:3px}
+.cdc-btn{display:inline-block;margin-top:6px;background:linear-gradient(135deg,#7c3aed,#5b21b6);color:#fff;font-size:0.75rem;font-weight:700;padding:6px 14px;border-radius:5px;text-decoration:none;border:1px solid rgba(196,132,252,0.3);white-space:nowrap}
 .cdc-btn:hover{background:linear-gradient(135deg,#8b5cf6,#6d28d9)}
+.hdmi-inc{font-size:0.72rem;color:#777;margin-bottom:4px}
+.hdmi-inc span{color:#a78bfa;font-weight:600}
 @media(min-width:600px){
-  .cdc{padding:22px 60px}
-  .cdc-title{font-size:1.15rem}
-  .cdc-price{font-size:1.6rem}
+  .cdc{padding:14px 60px}
+  .cdc-title{font-size:1.05rem}
+  .cdc-price{font-size:1.4rem}
 }
 
 /* SECTIONS */
@@ -397,13 +400,43 @@ footer{background:var(--bg3);border-top:1px solid var(--border);padding:28px 20p
 </div>
 
 <div class="cdc">
-  <div class="cdc-icon">🎮</div>
-  <div class="cdc-body">
-    <div class="cdc-tag">Always-On Special</div>
-    <div class="cdc-title">Console Deep Clean</div>
-    <div class="cdc-sub">PS5 · Xbox — Full Teardown Clean + PTM7950 Thermal Pad Upgrade</div>
-    <div class="cdc-price">$125 <span>all-in</span></div>
-    <a class="cdc-btn" href="#booking">Book Now →</a>
+  <!-- Deep Clean row -->
+  <div class="cdc-row">
+    <div class="cdc-icon">🎮</div>
+    <div class="cdc-body">
+      <div class="cdc-title">Console Deep Clean</div>
+      <div class="cdc-sub">PS5 · Xbox — Full Teardown Clean + PTM7950 Thermal Upgrade</div>
+      <div class="cdc-price">$125 <span>all-in</span></div>
+      <a class="cdc-btn" href="#booking">Book Now →</a>
+    </div>
+  </div>
+  <hr class="cdc-divider">
+  <!-- HDMI Port row -->
+  <div class="cdc-row">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 32" width="40" height="32" style="flex-shrink:0;filter:drop-shadow(0 0 6px rgba(138,43,226,0.8))">
+      <rect x="1" y="1" width="38" height="30" rx="2" fill="#1a1a2a" stroke="#c084fc" stroke-width="1.5"/>
+      <path d="M6 5 L34 5 L31 23 L9 23 Z" fill="#0a0a0a" stroke="#a855f7" stroke-width="1"/>
+      <rect x="8"  y="8" width="1.2" height="9" rx="0.3" fill="#c084fc"/>
+      <rect x="10" y="8" width="1.2" height="9" rx="0.3" fill="#c084fc"/>
+      <rect x="12" y="8" width="1.2" height="9" rx="0.3" fill="#c084fc"/>
+      <rect x="14" y="8" width="1.2" height="9" rx="0.3" fill="#c084fc"/>
+      <rect x="16" y="8" width="1.2" height="9" rx="0.3" fill="#c084fc"/>
+      <rect x="18" y="8" width="1.2" height="9" rx="0.3" fill="#c084fc"/>
+      <rect x="20" y="8" width="1.2" height="9" rx="0.3" fill="#c084fc"/>
+      <rect x="22" y="8" width="1.2" height="9" rx="0.3" fill="#c084fc"/>
+      <rect x="24" y="8" width="1.2" height="9" rx="0.3" fill="#c084fc"/>
+      <rect x="26" y="8" width="1.2" height="9" rx="0.3" fill="#c084fc"/>
+      <rect x="28" y="8" width="1.2" height="9" rx="0.3" fill="#c084fc"/>
+      <rect x="30" y="8" width="1.2" height="9" rx="0.3" fill="#c084fc"/>
+      <text x="20" y="29" text-anchor="middle" font-size="5" font-family="monospace" fill="#7c3aed" letter-spacing="1">HDMI</text>
+    </svg>
+    <div class="cdc-body">
+      <div class="cdc-title">Gaming Console HDMI Replacement</div>
+      <div class="cdc-sub">PS5 · Xbox Series X/S</div>
+      <div class="hdmi-inc"><span>New Port + Cleaning + PTM7950</span></div>
+      <div class="cdc-price">$135 <span>all-in</span></div>
+      <a class="cdc-btn" href="#booking">Book Now →</a>
+    </div>
   </div>
 </div>
 
